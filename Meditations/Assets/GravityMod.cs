@@ -20,16 +20,16 @@ public class GravityMod : MonoBehaviour {
 	void Update(){
 		if (endGame){
 			fps.m_WalkSpeed = 0;
-			if (blackScreen.color.a >= 1){
+			if (blackScreen.color.a <= 1){
 			var tempc = blackScreen.color;
-			tempc.a = blackScreen.color.a - 0.01f;
+			tempc.a = blackScreen.color.a + 0.01f;
 			blackScreen.color = tempc;
 
-			if (blackScreen.color.a <= 0){
+			if (blackScreen.color.a >= 1){
 				t++;
 			}
 
-			if (t > 10 * Time.deltaTime){
+			if (t > 5 * Time.deltaTime){
 				Application.Quit();
 			}
 		}
